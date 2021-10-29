@@ -17,7 +17,6 @@ public:
 
 protected:
     void DoOpen(const char *lib);
-    void SetError(void);
     void *module;
     CTString *err;
 };
@@ -29,19 +28,6 @@ CDynamicLoader *CDynamicLoader::GetInstance(const char *libname)
 }
 
 
-void CUnixDynamicLoader::SetError(void)
-{
-    const char *errmsg = ::dlerror();
-    delete err;
-    err = NULL;
-
-    if (errmsg != NULL)
-    {
-        CPrintF("CUnixDynamicLoader error: %s\n", errmsg);
-        err = new CTString(errmsg);
-    }
-}
-
 
 const char *CUnixDynamicLoader::GetError(void)
 {
@@ -51,11 +37,14 @@ const char *CUnixDynamicLoader::GetError(void)
 
 void *CUnixDynamicLoader::FindSymbol(const char *sym)
 {
-    //printf("Looking for symbol %s\n", sym);
+    //CPrintF("CUnixDynamicLoader looking for symbol: %s\n", sym);
     void *retval = NULL;
     if (module != NULL) {
         retval = ::dlsym(module, sym);
-        SetError();
+        delete err;
+        err = NULL;
+        if (!retval)
+            err = new CTString("Symbol not found");
     }
 
     return(retval);
@@ -64,8 +53,12 @@ void *CUnixDynamicLoader::FindSymbol(const char *sym)
 
 void CUnixDynamicLoader::DoOpen(const char *lib)
 {
+    //CPrintF("CUnixDynamicLoader looking for library: %s\n", lib);
     module = ::dlopen(lib, RTLD_LAZY | RTLD_GLOBAL);
-    SetError();
+    delete err;
+    err = NULL;
+    if (!module)
+        err = new CTString("Library not found");
 }
 
 
@@ -105,6 +98,8 @@ CUnixDynamicLoader::CUnixDynamicLoader(const char *libname)
         }
 
         DoOpen(fnm);
+        if (module == NULL)
+            DoOpen(fnm.FileName()+fnm.FileExt());
     }
 }
 
