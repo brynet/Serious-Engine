@@ -18,7 +18,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "StdAfx.h"
 #include "GameMP/Game.h"
-#include <sys/timeb.h>
 #include <time.h>
 #include <locale.h>
 
