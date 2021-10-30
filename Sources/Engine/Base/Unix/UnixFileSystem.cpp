@@ -77,8 +77,15 @@ BOOL CFileSystem::IsDirectory(const char *fname)
 
 CUnixFileSystem::CUnixFileSystem(const char *argv0, const char *gamename)
 {
+#ifdef __OpenBSD__
+    /* XXX: Fix for systemwide resources. */
+    userDir = SDL_GetPrefPath("Serious Engine", gamename);
+    if (userDir)
+        exePath = strdup(userDir);
+#else
     exePath = SDL_GetBasePath();
     userDir = SDL_GetPrefPath("Serious Engine", gamename);
+#endif
 }
 
 

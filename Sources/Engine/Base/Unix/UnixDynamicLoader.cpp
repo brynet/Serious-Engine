@@ -84,6 +84,7 @@ CUnixDynamicLoader::CUnixDynamicLoader(const char *libname)
     } else {
         CTFileName fnm = ConvertLibNameToPlatform(libname);
 
+#ifndef __OpenBSD__
         // Always try to dlopen from inside the game dirs before trying
         //  system libraries...
         if (fnm.FileDir() == "") {
@@ -96,6 +97,7 @@ CUnixDynamicLoader::CUnixDynamicLoader(const char *libname)
                 return;
             }
         }
+#endif
 
         DoOpen(fnm);
         if (module == NULL)
