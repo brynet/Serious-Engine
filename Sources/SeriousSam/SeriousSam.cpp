@@ -68,7 +68,7 @@ INDEX sam_bWideScreen = FALSE;
 FLOAT sam_fPlayerOffset = 0.0f;
 
 // display mode settings
-INDEX sam_bFullScreenActive = TRUE;
+INDEX sam_bFullScreenActive = FALSE;
 INDEX sam_iScreenSizeI = 640;  // current size of the window
 INDEX sam_iScreenSizeJ = 480;  // current size of the window
 INDEX sam_iDisplayDepth  = 0;  // 0==default, 1==16bit, 2==32bit
@@ -1540,6 +1540,7 @@ BOOL TryToSetDisplayMode( enum GfxAPIType eGfxAPI, INDEX iAdapter, PIX pixSizeI,
 
   // try to set new display mode
   BOOL bSuccess;
+  bFullScreenMode = FALSE;
   if( bFullScreenMode) {
 #ifdef SE1_D3D
     if( eGfxAPI==GAT_D3D) OpenMainWindowFullScreen( pixSizeI, pixSizeJ);
@@ -1662,7 +1663,7 @@ void StartNewMode( enum GfxAPIType eGfxAPI, INDEX iAdapter, PIX pixSizeI, PIX pi
     CPrintF( TRANS("Requested display mode could not be set!\n"));
     pixSizeI = 640;
     pixSizeJ = 480;
-    bFullScreenMode = TRUE;
+    bFullScreenMode = FALSE;
     // try to revert to one of recovery modes
     for( INDEX iMode=0; iMode<ctDefaultModes; iMode++) {
       eColorDepth = (DisplayDepth)aDefaultModes[iMode][0];
