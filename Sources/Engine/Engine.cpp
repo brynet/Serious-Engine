@@ -259,6 +259,11 @@ static char strDirPath[MAX_PATH] = "";
 
 static void AnalyzeApplicationPath(void)
 {
+#ifdef __OpenBSD__
+  /* XXX: */
+  _pFileSystem->GetExecutablePath(strExePath, sizeof (strExePath)-1);
+  _pFileSystem->GetUserDirectory(strDirPath, sizeof (strDirPath)-1);
+#else
   // rcg10072001 rewritten with abstraction layer.
   const char *_dirsep = CFileSystem::GetDirSeparator();
   size_t seplen = strlen(_dirsep);
@@ -293,6 +298,7 @@ static void AnalyzeApplicationPath(void)
   strncpy( strDirPath, pstrFin, sizeof(strDirPath)-1);
   strDirPath[sizeof(strDirPath)-1] = 0;
   delete[] dirsep;
+#endif
 }
 
 // rcg03242003
@@ -554,6 +560,9 @@ ENGINE_API void SE_InitEngine(const char *argv0, CTString strGameID)
   }
 
   _pConsole = new CConsole;
+#ifdef __OpenBSD__
+   _strLogFile = CTString(getprogname());
+#endif
   if (_strLogFile=="") {
     _strLogFile = CTFileName(CTString(strExePath)).FileName();
     // chop off end of Unix executable filename... --ryan.
