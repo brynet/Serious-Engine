@@ -15,7 +15,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 /* rcg10042001 */
-#ifdef PLATFORM_WIN32
+#ifdef _WIN32
 #define alloca _alloca
 #endif
 
