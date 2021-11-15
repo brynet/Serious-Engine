@@ -391,10 +391,8 @@ procedures:
   // determine camera type and jump to corresponding routine
   PlayCamera()
   {
-    // eventually add to movers list
-    CCameraMarker &cm = (CCameraMarker&)*m_penTarget;
     // if we have at least one marker
-    if( &cm!=NULL) {
+    if( m_penTarget!=NULL) {
       // treat camera as movable
       jump PlayMovingCamera();
     // if there isn't any markers
