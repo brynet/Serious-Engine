@@ -178,7 +178,6 @@ void ReplaceFileRL(const char *strOld, const char *strNew)
     // process each charachter
     for(int ich=0;ich<ctch;ich++)
     {
-      char *pchOld = &strOldBuff[iOldch];
       char *pchNew = &strNewBuff[ich];
 
       if((*pchNew == '{') || (*pchNew == '}') || *pchNew == ';')
