@@ -20,8 +20,9 @@ if(NOT COMMAND add_compile_options)
 	endfunction()
 endif()
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(CheckCXXCompilerFlag)
+include(ParserAndScanner)
 
 # ssam expects the libs to be in Debug/
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Debug)
@@ -312,40 +313,16 @@ else()
     include_directories(External/libvorbis/include)
 endif()
 
-# We build ECC, then use it to generate C++ code for the game entities...
-macro(add_parser_and_scanner _PARSER _SCANNER)
-    add_custom_command(
-        OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/${_SCANNER}.cpp"
-        MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/${_SCANNER}.l"
-        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-        COMMAND flex
-        ARGS -o${_SCANNER}.cpp ${_SCANNER}.l
-    )
-
-    add_custom_command(
-        OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/${_PARSER}.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/${_PARSER}.hpp"
-        MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/${_PARSER}.y"
-        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-        COMMAND bison
-        ARGS -o${_PARSER}.cpp ${_PARSER}.y -d
-    )
-
-    add_custom_command(
-        OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/${_PARSER}.h"
-        MAIN_DEPENDENCY "${CMAKE_CURRENT_SOURCE_DIR}/${_PARSER}.hpp"
-        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-        COMMAND ${CMAKE_COMMAND}
-        ARGS -E copy ${_PARSER}.hpp ${_PARSER}.h
-    )
-endmacro()
-
 # Build ECC from source if there wasn't a prebuilt-one specified on the command line.
 #  Normally we build it here, but we might need a prebuilt, native binary if
 #  we're cross-compiling the rest of the game.
-if(NOT ECC)
-    add_parser_and_scanner("Ecc/Parser" "Ecc/Scanner")
-    add_executable(ecc Ecc/Main.cpp Ecc/Parser.cpp Ecc/Parser.h Ecc/Scanner.cpp)
-    set(ECC "ecc")
+if(ECC)
+    # Use given ecc.
+elseif(CMAKE_CROSSCOMPILING)
+    message(FATAL_ERROR "ECC variable must point to native ecc binary when cross-compiling.")
+else()
+    add_subdirectory(Ecc)
+    set(ECC ecc)
 endif()
 
 macro(entity _NAME)

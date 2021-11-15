@@ -1,7 +1,7 @@
 %{
 // rcg10042001 Changed to specify Ecc directory...
-#include "Ecc/StdH.h"
-#include "Ecc/Main.h"
+#include "StdH.h"
+#include "Main.h"
 
 // turn off over-helpful bit of bison... --ryan.
 #ifdef __GNUC__
