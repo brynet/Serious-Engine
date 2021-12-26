@@ -1476,9 +1476,8 @@ void Particles_MetalParts( CEntity *pen, FLOAT tmStarted, FLOATaabbox3D boxOwner
 
     UBYTE ubRndH = UBYTE( 180+afStarsPositions[ int(iPart+tmStarted*10)%CT_MAX_PARTICLES_TABLE][0]*16);
     UBYTE ubRndS = UBYTE( 12+(afStarsPositions[ int(iPart+tmStarted*10)%CT_MAX_PARTICLES_TABLE][1])*8);
-    UBYTE ubRndV = UBYTE( 192+(afStarsPositions[ int(iPart+tmStarted*10)%CT_MAX_PARTICLES_TABLE][2])*64);
     //ubRndS = 0;
-    ubRndV = 255;
+    UBYTE ubRndV = 255;
     COLOR col = HSVToColor(ubRndH, ubRndS, ubRndV)|UBYTE(255.0f*fRatio);
     FLOAT fRotation = fT*400.0f*afStarsPositions[iRnd][0];
     FLOAT fSize = fBoxSize*0.005f+0.125f+afStarsPositions[iRnd][1]*0.025f;
@@ -2301,8 +2300,7 @@ void Particles_EmptyShells( CEntity *pen, ShellLaunchData *asldData)
         {
           fColorFactor = -fT+fLife;
         }
-        UBYTE ubAlpha = UBYTE(CT_OPAQUE*fColorFactor);
-        ubAlpha = CT_OPAQUE;
+        UBYTE ubAlpha = CT_OPAQUE;
         FLOAT3D vSpeedPower = sld.sld_vSpeed/(1.0f+fT*fT);
         
         FLOAT3D vPos = sld.sld_vPos + 
@@ -2779,10 +2777,8 @@ void Particles_BloodSpray(enum SprayParticlesType sptType, CEntity *penSpray, FL
     case SPT_ELECTRICITY_SPARKS:
     {
       UBYTE ubRndH = UBYTE( 180+afStarsPositions[ int(iSpray+tmStarted*10)%CT_MAX_PARTICLES_TABLE][0]*16);
-      UBYTE ubRndS = UBYTE( 32+(afStarsPositions[ int(iSpray+tmStarted*10)%CT_MAX_PARTICLES_TABLE][1]+0.5)*16);
-      UBYTE ubRndV = UBYTE( 192+(afStarsPositions[ int(iSpray+tmStarted*10)%CT_MAX_PARTICLES_TABLE][2])*64);
-      ubRndS = 0;
-      ubRndV = 255;
+      UBYTE ubRndS = 0;
+      UBYTE ubRndV = 255;
       col = HSVToColor(ubRndH, ubRndS, ubRndV)|ubAlpha;
       fSize/=32.0f;
       fRotation = fT*200.0f;

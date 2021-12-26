@@ -47,7 +47,7 @@ public:
   CEntityPointer ehi_epEntityPointer;
   CClientEntry ehi_ceClientEntries[SERVER_CLIENTS];
 
-  CEntityHashItem() {ehi_ulEntityID = -1;} // entity pointer will initialize itself to NULL
+  CEntityHashItem(): ehi_ulEntityID(-1){} // entity pointer will initialize itself to NULL
 
   ~CEntityItem() {}; // entity poiner will destroy itself and remove the reference
      

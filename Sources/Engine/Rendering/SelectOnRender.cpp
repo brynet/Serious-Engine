@@ -165,8 +165,7 @@ void SelectVertexOnRender(CBrushVertex &bvx, const PIX2D &vpix)
   // if selecting with lasso
   } else {
     // if the vertex is set in lasso buffer
-    if (_pubLassoBuffer!=NULL
-      &&_pubLassoBuffer[vpix(2)*_pixSizeI+vpix(1)]) {
+    if (_pubLassoBuffer[vpix(2)*_pixSizeI+vpix(1)]) {
 
       // if alternative
       if (_bSelectAlternative) {

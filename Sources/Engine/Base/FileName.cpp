@@ -37,7 +37,7 @@ const char *CTFileName::convertFromWin32(const char *src)
     static const char *dirsep = NULL;
     static size_t seplen = 0;
     static char buf[MAX_PATH];  // This is NOT thread safe, fyi.
-    char *dest = buf;
+    char *dest;
 
     if (src == NULL)
     {
@@ -78,7 +78,7 @@ const char *CTFileName::convertToWin32(const char *src)
     static const char *dirsep = NULL;
     static size_t seplen = 0;
     static char buf[MAX_PATH];  // This is NOT thread safe, fyi.
-    char *dest = buf;
+    char *dest;
 
     if (src == NULL)
     {

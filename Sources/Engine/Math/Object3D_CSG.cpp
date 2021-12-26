@@ -195,9 +195,7 @@ public:
   // array for holding edges that proceed with testing
   CDynamicArray<DOUBLEbspedge3D> oc_abedProceeding;
 
-  CObjectCSG(void) {
-    oc_bCSGIngoringEnabled = FALSE;
-    oc_bSkipObjectB = FALSE;
+  CObjectCSG(void): oc_bCSGIngoringEnabled(FALSE), oc_bSkipObjectB(FALSE){
   }
 
   /* Add an entire array of BSP edges to some polygon according to action code. */

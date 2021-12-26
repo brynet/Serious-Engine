@@ -16,14 +16,7 @@ FLOAT NodeDistance(CPathNode *ppn0, CPathNode *ppn1)
     ppn1->pn_pnmMarker->GetPlacement().pl_PositionVector).Length();
 }
 
-CPathNode::CPathNode(class CNavigationMarker *penMarker)
-{
-  pn_pnmMarker = penMarker;
-  pn_ppnParent = NULL;
-  pn_fG = 0.0f;
-  pn_fH = 0.0f;
-  pn_fF = 0.0f;
-}
+CPathNode::CPathNode(class CNavigationMarker *penMarker): pn_pnmMarker(penMarker), pn_ppnParent(NULL), pn_fG(0.0f), pn_fH(0.0f), pn_fF(0.0f){}
 
 CPathNode::~CPathNode(void)
 {

@@ -188,8 +188,7 @@ public:
   ~CEnableUserBreak();
 };
 
-CEnableUserBreak::CEnableUserBreak() {
-  bOld = _bUserBreakEnabled;
+CEnableUserBreak::CEnableUserBreak(): bOld(_bUserBreakEnabled){
   _bUserBreakEnabled = TRUE;
 }
 CEnableUserBreak::~CEnableUserBreak() {

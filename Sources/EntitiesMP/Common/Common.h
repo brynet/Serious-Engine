@@ -156,14 +156,7 @@ struct DECL_DLL PlayerStats {
   INDEX ps_iSecrets;
   TIME  ps_tmTime;
 
-  PlayerStats(void)
-  {
-    ps_iScore = 0;
-    ps_iKills = 0;
-    ps_iDeaths = 0;
-    ps_iSecrets = 0;
-    ps_tmTime = 0.0f;
-  }
+  PlayerStats(void): ps_iScore(0), ps_iKills(0), ps_iDeaths(0), ps_iSecrets(0), ps_tmTime(0.0f){}
 };
 
 static inline CTStream &operator>>(CTStream &strm, PlayerStats &ps)

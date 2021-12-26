@@ -29,12 +29,7 @@ void AdjustFilePath_t(CTFileName &fnm)
 }
 
 // class constructor
-CDependInfo::CDependInfo(CTFileName fnFileName, CTFileName fnParent)
-{
-  // copy file name
-  di_fnFileName = fnFileName;
-  di_fnParent = fnParent;
-}
+CDependInfo::CDependInfo(CTFileName fnFileName, CTFileName fnParent): /*copy file name*/ di_fnFileName(fnFileName), di_fnParent(fnParent){}
 
 BOOL CDependInfo::IsFileOnDiskUpdated(void)
 {

@@ -480,9 +480,6 @@ BOOL CClientInterface::UpdateInputBuffers(void)
 				// take this packet out of the input buffer
 				ci_pbInputBuffer.RemovePacket(ppaPacket->pa_ulSequence,FALSE);		
 
-        if (ppaPacket->pa_ulSequence == 8) {
-          ppaPacket->pa_ulSequence = 8;
-        }
 				// a packet can be accepted from the broadcast ID only if it is an acknowledge packet or 
 				// if it is a connection confirmation response packet and the client isn't already connected
 				if (ppaPacket->pa_adrAddress.adr_uwID == SLASHSLASH || ppaPacket->pa_adrAddress.adr_uwID == 0) {

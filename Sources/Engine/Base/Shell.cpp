@@ -1,4 +1,4 @@
-/* Copyright (c) 2002-2012 Croteam Ltd. 
+/* Copyright (c) 2002-2012 Croteam Ltd.
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -182,6 +182,7 @@ CTString ScriptEsc(const CTString &str)
 
 #pragma inline_depth(0)
 void MakeAccessViolation(void* pArgs)
+
 {
   INDEX bDont = NEXTARGUMENT(INDEX);
   if( bDont) return;
@@ -674,7 +675,7 @@ FLOAT CShell::GetFLOAT(const CTString &strName)
     // error
     ASSERT(FALSE);
     return -666.0f;
-  } 
+  }
   // get it
   return *(FLOAT*)pss->ss_pvValue;
 }
@@ -688,7 +689,7 @@ void CShell::SetFLOAT(const CTString &strName, FLOAT fValue)
     // error
     ASSERT(FALSE);
     return;
-  } 
+  }
   // set it
   *(FLOAT*)pss->ss_pvValue = fValue;
 }
@@ -703,7 +704,7 @@ INDEX CShell::GetINDEX(const CTString &strName)
     // error
     ASSERT(FALSE);
     return -666;
-  } 
+  }
   // get it
   return *(INDEX*)pss->ss_pvValue;
 }
@@ -717,7 +718,7 @@ void CShell::SetINDEX(const CTString &strName, INDEX iValue)
     // error
     ASSERT(FALSE);
     return;
-  } 
+  }
   // set it
   *(INDEX*)pss->ss_pvValue = iValue;
 }
@@ -732,7 +733,7 @@ CTString CShell::GetString(const CTString &strName)
     // error
     ASSERT(FALSE);
     return "<invalid>";
-  } 
+  }
   // get it
   return *(CTString*)pss->ss_pvValue;
 }
@@ -746,7 +747,7 @@ void CShell::SetString(const CTString &strName, const CTString &strValue)
     // error
     ASSERT(FALSE);
     return;
-  } 
+  }
   // set it
   *(CTString*)pss->ss_pvValue = strValue;
 }
@@ -762,7 +763,7 @@ CTString CShell::GetValue(const CTString &strName)
     // error
     ASSERT(FALSE);
     return "<invalid>";
-  } 
+  }
 
   // get it
   ShellTypeType stt = _shell_ast[pss->ss_istType].st_sttType;
@@ -795,7 +796,7 @@ void CShell::SetValue(const CTString &strName, const CTString &strValue)
     // error
     ASSERT(FALSE);
     return;
-  } 
+  }
   // get it
   ShellTypeType stt = _shell_ast[pss->ss_istType].st_sttType;
   switch(stt) {

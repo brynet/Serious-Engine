@@ -185,9 +185,7 @@ public:
   ~CGatherCRC();
 };
 
-CGatherCRC::CGatherCRC() {
-  bOld = CRCT_bGatherCRCs;
-}
+CGatherCRC::CGatherCRC(): bOld(CRCT_bGatherCRCs){}
 CGatherCRC::~CGatherCRC() {
   CRCT_bGatherCRCs = bOld;
 }

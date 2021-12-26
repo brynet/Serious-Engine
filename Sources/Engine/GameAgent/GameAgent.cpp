@@ -1,4 +1,4 @@
-/* Copyright (c) 2002-2012 Croteam Ltd. 
+/* Copyright (c) 2002-2012 Croteam Ltd.
 This program is free software; you can redistribute it and/or modify
 it under the terms of version 2 of the GNU General Public License as published by
 the Free Software Foundation
@@ -593,7 +593,7 @@ extern void GameAgent_EnumTrigger(BOOL bInternet)
   if ( _pNetwork->ga_bEnumerationChange ) {
     return;
   }
-  
+
   if ( !bInternet && ga_bMSLegacy) {
     // make sure that there are no requests still stuck in buffer
     ga_asrRequests.Clear();
@@ -866,7 +866,7 @@ extern void GameAgent_EnumTrigger(BOOL bInternet)
     _bActivated = TRUE;
     _bInitialized = TRUE;
     _initializeWinsock();
-   
+
     }
   }
 }
@@ -1051,7 +1051,7 @@ extern void GameAgent_EnumUpdate(void)
             pthread_detach(_hThread);
         }
         _bActivatedLocal = FALSE;		
-    }	 
+    }
  #else
  /* MSLegacy */
     if(_bActivated) {
@@ -1152,7 +1152,7 @@ void*        _MS_Thread(void *arg) {
           /** do recvfrom stuff **/
           iRet =  recvfrom(_sockudp, _szBuffer, 2048, 0, (sockaddr*)&_sinClient, &_iClientLength);
           FD_CLR(_sockudp, &readfds_udp);
-          if(iRet != -1 && iRet > 100 && iRet != SOCKET_ERROR) {
+          if(iRet > 100 && iRet != SOCKET_ERROR) {
             // null terminate the buffer
             _szBuffer[iRet] = 0;
             char *sPch = NULL;
@@ -1360,7 +1360,7 @@ void*        _LocalNet_Thread(void *arg) {
           /** do recvfrom stuff **/
           iRet =  recvfrom(_sockudp, _szBuffer, 2048, 0, (sockaddr*)&_sinClient, &_iClientLength);
           FD_CLR(_sockudp, &readfds_udp);
-          if(iRet != -1 && iRet > 100 && iRet != SOCKET_ERROR) {
+          if(iRet > 100 && iRet != SOCKET_ERROR) {
             // null terminate the buffer
             _szBuffer[iRet] = 0;
             char *sPch = NULL;
@@ -1370,7 +1370,7 @@ void*        _LocalNet_Thread(void *arg) {
 				if(_szIPPortBufferLocal != NULL) {
 					delete[] _szIPPortBufferLocal;
 				}
-				_szIPPortBufferLocal = NULL;               
+				_szIPPortBufferLocal = NULL;
 				WSACleanup();
 				return 0;
             } else {

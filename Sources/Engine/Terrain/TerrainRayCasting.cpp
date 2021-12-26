@@ -186,11 +186,9 @@ static FLOAT HitCheckQuad(const PIX ix, const PIX iz)
       // if the polygon is intersected by the ray, and it is the closest intersection so far
 			if (isIntersector.IsIntersecting() && (fHitDistance < fDistance)) {
 				// remember hit coordinates
-        if(fHitDistance<fDistance) {
 				  fDistance = fHitDistance;
           _vHitExact = vHitPoint;
-          _plHitPlane = plTriPlane;
-        }
+          _plHitPlane = plTriPlane;        
   		}
     }
   }

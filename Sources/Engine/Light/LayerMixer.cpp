@@ -2002,9 +2002,8 @@ void CLayerMixer::MixOneMipmapDynamic( CBrushShadowMap *pbsm, INDEX iMipmap)
 
 
 // constructor
-CLayerMixer::CLayerMixer( CBrushShadowMap *pbsm, INDEX iFirstMip, INDEX iLastMip, BOOL bDynamic)
+CLayerMixer::CLayerMixer( CBrushShadowMap *pbsm, INDEX iFirstMip, INDEX iLastMip, BOOL bDynamic): lm_bDynamic(bDynamic)
 {
-  lm_bDynamic = bDynamic;
   if( bDynamic) {
     // check dynamic layers for complete blackness
     BOOL bAllBlack = TRUE;

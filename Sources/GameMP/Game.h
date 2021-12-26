@@ -139,10 +139,8 @@ public:
   CPlayerSource *lp_pplsPlayerSource;
   UBYTE lp_ubPlayerControlsState[2048]; // current state of player controls that are local to the player
 // Construction
-  CLocalPlayer( void)
+  CLocalPlayer(void): lp_pplsPlayerSource(NULL), lp_bActive(FALSE)
   {
-    lp_pplsPlayerSource = NULL; 
-    lp_bActive = FALSE; 
     memset(lp_ubPlayerControlsState, 0, sizeof(lp_ubPlayerControlsState)) ;
   };
 };

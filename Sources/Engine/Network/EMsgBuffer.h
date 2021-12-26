@@ -81,12 +81,7 @@ struct TickMarker {
 	UBYTE tm_ubAcknowledgesExpected;
   UWORD tm_uwNumMessages;
 
-  TickMarker() {
-    tm_fTickTime = -1;
-    tm_slTickOffset = -1;
-    tm_ubAcknowledgesExpected = 0;
-    tm_uwNumMessages = 0;
-  }
+  TickMarker(): tm_fTickTime(-1), tm_fTickTime(-1), tm_ubAcknowledgesExpected(0), tm_uwNumMessages (0){}
 };
 
 

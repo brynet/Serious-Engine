@@ -870,7 +870,7 @@ extern void DrawHUD( const CPlayer *penPlayerCurrent, CDrawPort *pdpCurrent, BOO
       if( iHealth>25) colHealth = _colHUD;
       if( iArmor >25) colArmor  = _colHUD;
       // eventually print it out
-      if( hud_iShowPlayers==1 || (hud_iShowPlayers==-1 && !bSinglePlay)) {
+      if( hud_iShowPlayers==1 || hud_iShowPlayers==-1) {
         // printout location and info aren't the same for deathmatch and coop play
         const FLOAT fCharWidth = (PIX)((_pfdDisplayFont->GetWidth()-2) *fTextScale);
         if( bCooperative) { 

@@ -166,11 +166,8 @@ CTString GetZlibError(int ierr)
   }
 }
 
-CZipHandle::CZipHandle(void) 
+CZipHandle::CZipHandle(void): zh_bOpen(FALSE), zh_fFile(NULL), zh_pubBufIn(NULL)
 {
-  zh_bOpen = FALSE;
-  zh_fFile = NULL;
-  zh_pubBufIn = NULL;
   memset(&zh_zstream, 0, sizeof(zh_zstream));
 }
 void CZipHandle::Clear(void) 

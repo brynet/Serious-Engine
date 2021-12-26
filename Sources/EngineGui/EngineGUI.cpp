@@ -154,7 +154,7 @@ CTFileName CEngineGUI::CreateTexture(CTFileName fnTexFileToRecreate/*=CTString("
     CDlgChooseTextureType dlgChooseTextureType;
     int iDlgResult = dlgChooseTextureType.DoModal();
     // if user choosed a texture type
-    if( (iDlgResult != -1) && (iDlgResult >= 0) && (iDlgResult <= 2) )
+    if( (iDlgResult >= 0) && (iDlgResult <= 2) )
     {
       // if result is 2 we want to create effect texture
       if( iDlgResult == 2)
