@@ -4,6 +4,8 @@
 
 // !!! FIXME: rcg10142001 This should really be using CTStrings...
 
+#ifdef PLATFORM_WIN32
+
 #include <io.h>
 
 #include <Engine/Engine.h>
@@ -116,6 +118,6 @@ CDynamicArray<CTString> CWin32FileSystem::FindFiles(const char *dir,
     return(retval);
 }
 
+#endif //PLATFORM_WIN32
+
 // end of Win32FileSystem.cpp ...
-
-

@@ -2,6 +2,8 @@
 
 /* rcg10072001 Implemented. */
 
+#ifdef PLATFORM_WIN32
+
 #include <Engine/Engine.h>
 #include <Engine/Base/DynamicLoader.h>
 
@@ -83,6 +85,7 @@ CWin32DynamicLoader::~CWin32DynamicLoader(void)
         ::FreeLibrary(module);
 }
 
+#endif //PLATFORM_WIN32
 
 // end of Win32DynamicLoader.cpp ...
 

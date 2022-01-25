@@ -2,6 +2,8 @@
 
 /* rcg10072001 Moved stuff into this file. */
 
+#ifdef PLATFORM_WIN32
+
 #include <Engine/Base/Timer.h>
 #include <Engine/Base/Input.h>
 #include <Engine/Base/Translation.h>
@@ -981,6 +983,8 @@ LONG CInput::PlatformGetJoystickCount(void)
 {
   return((LONG) joyGetNumDevs());
 }
+
+#endif //PLATFORM_WIN32
 
 // end of Win32Input.cpp ...
 

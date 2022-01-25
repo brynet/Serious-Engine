@@ -25,10 +25,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "initguid.h"
 #endif
 
-// !!! FIXME : Move all the SDL stuff to a different file...
-#ifdef PLATFORM_UNIX
-#include "SDL.h"
-#endif
 
 #include <Engine/Engine.h>
 #include <Engine/Sound/SoundLibrary.h>

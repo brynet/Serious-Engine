@@ -45,9 +45,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <Engine/Templates/StaticArray.cpp>
 #include <Engine/Base/IFeel.h>
 
-#if PLATFORM_UNIX
-#include "SDL.h"
-#endif
 
 // this version string can be referenced from outside the engine
 ENGINE_API CTString _strEngineBuild  = "";

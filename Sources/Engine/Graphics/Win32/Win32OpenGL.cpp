@@ -1,5 +1,7 @@
 /* Copyright (c) 2002-2012 Croteam Ltd. All rights reserved. */
 
+#ifdef PLATFORM_WIN32
+
 #include <Engine/Engine.h>
 
 static void FailFunction_t(const char *strName) {
@@ -438,3 +440,4 @@ BOOL CGfxLibrary::SetCurrentViewport_OGL(CViewPort *pvp)
   return TRUE;
 }
 
+#endif // PLATFORM_WIN32

@@ -26,10 +26,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <Engine/Graphics/Adapter.h>
 
-#ifndef PLATFORM_WIN32
-#include "SDL.h"
-#endif
-
 INDEX con_bNoWarnings = 0;
 
 // global handle for application window in full-screen mode

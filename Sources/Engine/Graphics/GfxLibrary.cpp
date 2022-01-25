@@ -52,11 +52,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 // !!! FIXME: rcg10112001  driver type is valid.
 
 
-// !!! FIXME: rcg11052001  ... and I could get rid of this, too...
-#ifdef PLATFORM_UNIX
-#include <SDL.h>
-#endif
-
 // control for partial usage of compiled vertex arrays
 BOOL CVA_b2D     = FALSE;
 BOOL CVA_bWorld  = FALSE;

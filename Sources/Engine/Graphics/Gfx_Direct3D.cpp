@@ -15,6 +15,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "Engine/StdH.h"
 
+#ifdef SE1_D3D
+
 #include <Engine/Base/Translation.h>
 #include <Engine/Base/ErrorReporting.h>
 #include <Engine/Base/Memory.h>
@@ -27,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <Engine/Templates/DynamicContainer.cpp>
 #include <Engine/Templates/Stock_CTextureData.h>
 
-#ifdef SE1_D3D
+
 
 
 // asm shortcuts

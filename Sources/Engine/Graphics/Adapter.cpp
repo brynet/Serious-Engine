@@ -22,9 +22,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 // !!! FIXME : rcg11052001 move this somewhere.
-#ifdef PLATFORM_UNIX
-#include "SDL.h"
-#endif
+//#ifdef PLATFORM_UNIX
+//#include "SDL.h"
+//#endif
 
 extern BOOL _bDedicatedServer;
 #ifdef SE1_D3D

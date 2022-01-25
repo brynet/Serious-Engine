@@ -197,7 +197,7 @@ void CWorld::ReadBrushes_t( CTStream *istrm)// throw char *
   wo_baBrushes.Read_t(istrm);
   CallProgressHook_t(1.0f);
 
-  // if there are some terrais in world
+  // if there are some terrains in world
   if(istrm->PeekID_t()==CChunkID("TRAR")) { // 'terrain archive'
     SetProgressDescription(TRANS("loading terrains"));
     CallProgressHook_t(0.0f);
