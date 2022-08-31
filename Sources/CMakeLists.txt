@@ -99,7 +99,7 @@ endif()
 ## ** RAKE! clean up for SeriousEngine use. Also  **
 ## ** RAKE! need to make this pandora safe.	  **
 # compiler specific flags
-if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
+if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_C_COMPILER_ID STREQUAL "AppleClang")
 	# This section and the like are for flags/defines that can be shared between 
 	# c and c++ compile options
 	add_compile_options(-Wall)
